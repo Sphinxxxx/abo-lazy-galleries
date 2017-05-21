@@ -1,0 +1,49 @@
+.abolg-gallery-placeholder {
+	background-color: #eee;
+	min-height: 100px;
+}
+	.abolg-gallery-placeholder.abolg-loading,
+	.abolg-gallery-placeholder.abolg-rendering {
+		background: url('../img/loader.gif') center center no-repeat;
+		border: 1px solid silver;
+	}
+	.abolg-gallery-placeholder.abolg-rendered {
+		background: none;
+		
+		/*Contain floated '.gallery-items' (overflow:hidden will hide the hover-shadow on items along the edge).
+		  table-layout:fixed is needed to make the gallery respect width:100% if a row is made up of one large image:
+		  http://stackoverflow.com/a/24665759/1869660 */
+		display: table;
+		table-layout: fixed;
+		width: 100%;
+	}
+	.abolg-gallery-placeholder .gallery {
+		margin: 0;
+		padding: 0;
+	}
+	.abolg-gallery-placeholder .gallery-item {
+		/*inline-block results in extra space between rows. Use display:table on the placeholder instead...
+		float: none;
+		display: inline-block;
+		*/
+		float: left;
+		overflow: visible;
+	}
+	.abolg-gallery-placeholder .gallery-caption {
+		overflow: hidden;
+	}
+	.abolg-gallery-placeholder .gallery-item * {
+		margin: 0 !important;
+	}
+	.abolg-gallery-placeholder .gallery-item img {
+		width: 100%;
+	}
+	.abolg-gallery-placeholder .gallery-item img:hover {
+		box-shadow: 0px 0px 5px black;
+		
+		/*More effects...
+		position: absolute;
+		z-index: 999;
+		transform: rotate(-10deg) scale(1.05);
+		*/
+	}
